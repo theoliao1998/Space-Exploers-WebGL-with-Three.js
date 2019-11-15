@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>test</title>
+<!-- You can add your style here rather than in an external style sheet. -->
+<style>
+	body{
+        margin:0;
+    }
+    canvas{
+        width:100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+    <script src = "js/three.js"></script>
+    <script src = "js/OrbitControls.js"></script>
+    <script src = "js/GLTFLoader.js"></script>
+    <script src = "js/PLYLoader.js"></script>
+    <script src = "js/LegacyJSONLoader.js"></script>
+    <!-- <script src = "js/LegacyJSONLoader.js"></script> -->
+    <script>
+    (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+    var WIDTH = window.innerWidth;
+    var HEIGHT = window.innerHeight;
+    
+    var VIEW_ANGLE = 75;
+    var ASPECT = WIDTH / HEIGHT;
+    var NEAR = 0.1;
+    var FAR = 10000;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(
+        VIEW_ANGLE,
+        ASPECT,
+        NEAR,
+        FAR
+    );
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(WIDTH, HEIGHT);
+    document.body.appendChild(renderer.domElement)
+    
+    window.addEventListener('resize',function(){
+        WIDTH = window.innerWidth;
+        HEIGHT = window.innerHeight;
+        renderer.setSize(WIDTH, HEIGHT);
+        camera.aspect = WIDTH / HEIGHT;
+        camera.updateProjectionMatrix();
+    })
+    
+    // create shape
+    var geometry = new THREE.BoxGeometry( 2, 2, 2 );
+    var cubeMaterials = [// 6 sides
+        new THREE.MeshLambertMaterial({color:0xFFFFFF, side:THREE.FrontSide}),
+        new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide}),
+        new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide}),
+        new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide})
+    ];
+
+
+    //var material = new THREE.MeshBasicMaterial( {color: 0xffffff, wireframe:true} );
+    //var material = new THREE.MeshFaceMaterial( cubeMaterials ); //MeshFaceMaterial removed, directly use the array
+    var cube = new THREE.Mesh( geometry, cubeMaterials );
+    scene.add( cube );
+    camera.position.z = 3; //otherwise both camera and cube is in the origin, can not see it!
+
+    var controls = new THREE.OrbitControls(camera,renderer.domElement);
+    
+    // var loader = new THREE.GLTFLoader();
+    // loader.load(
+    //     "https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/models/earth2/scene.gltf",
+    //     function(gltf){
+    //         scene.add(gltf.scene);
+    //     }, undefined, function ( error ) {
+    //         console.error( error );
+    //     }
+    // );
+
+    // var loader = new THREE.PLYLoader();
+    // var group = new THREE.Object3D();
+    // loader.load(
+    //     "https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/models/space/model.ply",
+    //     function (geometry) {
+    //         var material = new THREE.MeshBasicMaterial({color: 0xff4444});
+    //         var mesh = new THREE.Mesh(geometry, material);
+    //         mesh.rotation.set( - Math.PI / 2 - 0.2, 0, - Math.PI / 2 + 0.2);
+    //         mesh.position.set(-20, 15, 10);
+    //         mesh.scale.set(2, 2, 2);
+    //         scene.add(mesh);
+    //     }, undefined, function ( error ) {
+    //         console.error( error );
+    //     }
+    // );
+
+
+    var loader = new THREE.ObjectLoader();
+    loader.load(
+        "https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/models/earth3/earth-v72.json",
+
+        function(object){
+            scene.add(object);
+        }
+    );
+    
+    var ambientLight = new THREE.AmbientLight(0xFFFFFF, 1.0)
+    scene.add(ambientLight);
+
+    // var pointLight = new THREE.PointLight(0xFF0040, 4, 50);
+    // scene.add(pointLight);
+    // var pointLight2 = new THREE.PointLight(0x0040FF, 4, 50);
+    // scene.add(pointLight2);
+    // var pointLight3 = new THREE.PointLight(0xFFFF40, 4, 50);
+    // scene.add(pointLight3);
+
+
+    // game logic
+    var update= function(){
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.005;
+        // var time = Date.now() * 0.0005;
+        // pointLight.position.x = Math.sin(time * 0.7)*30;
+        // pointLight.position.y = Math.cos(time * 0.5)*40;
+        // pointLight.position.z = Math.cos(time * 0.3)*30;
+        
+        // pointLight2.position.x = Math.cos(time * 0.3)*30;
+        // pointLight2.position.y = Math.sin(time * 0.5)*40;
+        // pointLight2.position.z = Math.sin(time * 0.7)*30;
+
+        // pointLight3.position.x = Math.sin(time * 0.7)*30;
+        // pointLight3.position.y = Math.cos(time * 0.3)*40;
+        // pointLight3.position.z = Math.sin(time * 0.5)*30;
+    };
+
+    // draw Scene
+    var render = function(){
+        renderer.render(scene,camera)
+    };
+
+    // run game loop (update, render repeat)
+    var GameLoop = function(){
+        requestAnimationFrame(GameLoop);
+        update();
+        render();
+
+    };
+    
+    GameLoop();
+
+    </script>
+</body>
+
+</html>
