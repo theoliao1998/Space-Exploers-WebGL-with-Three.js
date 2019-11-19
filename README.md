@@ -1,2 +1,2 @@
 # ThreeJS  
-Just for some test now.
+SI 539 Final Project
