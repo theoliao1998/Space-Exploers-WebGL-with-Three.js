@@ -2,7 +2,7 @@ var THREEx = THREEx || {}
 
 THREEx.Planets	= {}
 
-THREEx.Planets.baseURL	= 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/'
+THREEx.Planets.baseURL	= 'https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/'
 // from http://planetpixelemporium.com/
 
 THREEx.Planets.createSun	= function(){
@@ -42,10 +42,11 @@ THREEx.Planets.createVenus	= function(){
 THREEx.Planets.createEarth	= function(){
 	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
-		map	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'earthmap1k.jpg'),
-		bumpMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'earthbump1k.jpg'),
+		// map	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'2k_earth_daymap.jpg'),
+		map	: new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_earth_daymap.jpg'),
+		bumpMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'2k_earth_nightmap.jpg'),
 		bumpScale : 0.05,
-		specularMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'earthspec1k.jpg'),
+		specularMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'2k_earth_specular_map.jpg'),
 		specular : new THREE.Color('grey'),
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
