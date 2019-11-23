@@ -42,8 +42,7 @@ THREEx.Planets.createVenus	= function(){
 THREEx.Planets.createEarth	= function(){
 	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
-		// map	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'2k_earth_daymap.jpg'),
-		map	: new THREE.TextureLoader().load('https://www.solarsystemscope.com/textures/download/8k_earth_daymap.jpg'),
+		map	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'8k_earth_daymap.jpg'),
 		bumpMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'2k_earth_nightmap.jpg'),
 		bumpScale : 0.05,
 		specularMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'2k_earth_specular_map.jpg'),
