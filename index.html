@@ -38,7 +38,7 @@
         NEAR,
         FAR
     );
-    var onRenderFcts= [];
+
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(WIDTH, HEIGHT);
 
@@ -75,11 +75,11 @@
 
     var earth_mesh = THREEx.Planets.createEarth()
     scene.add(earth_mesh)
+
     var cloud_mesh = THREEx.Planets.createEarthCloud()
     scene.add(cloud_mesh)
-    onRenderFcts.push(function(delta, now){
-        cloud_mesh.rotation.y += 1/8 * delta;		
-    })
+
+    
     
     // var loader = new THREE.GLTFLoader();
     // loader.load(
@@ -110,8 +110,11 @@
 
     // game logic
     var update= function(){
-        // cube.rotation.x += 0.01;
-        // cube.rotation.y += 0.005;
+        // earth_mesh.rotation.y += 1/32 * delta;
+        //cloud_mesh.rotation.y += 1/8 * delta;
+        //earth_mesh.rotation.x += 0.01;
+        earth_mesh.rotation.y += 0.001;
+        cloud_mesh.rotation.y += 0.004;
         // var time = Date.now() * 0.0005;
         // pointLight.position.x = Math.sin(time * 0.7)*30;
         // pointLight.position.y = Math.cos(time * 0.5)*40;
@@ -132,6 +135,7 @@
     };
 
     // run game loop (update, render repeat)
+
     var GameLoop = function(){
         requestAnimationFrame(GameLoop);
         update();
@@ -139,6 +143,9 @@
     };
     
     GameLoop();
+
+    
+    
 
     </script>
 </body>
