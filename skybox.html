@@ -55,15 +55,15 @@
     // create shape
     var geometry = new THREE.BoxGeometry( 100, 100, 100 );
 
-    var baseurl = 'https://raw.githubusercontent.com/theoliao1998/ThreeJS/master';
+    // var baseurl = 'https://raw.githubusercontent.com/theoliao1998/ThreeJS/master';
 
     var cubeMaterials = [// 6 sides
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/earth/ft.png'), side:THREE.DoubleSide}),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/earth/bk.png'), side:THREE.DoubleSide}),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/earth/up.png'), side:THREE.DoubleSide}),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/earth/dn.png'), side:THREE.DoubleSide}),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/earth/rt.png'), side:THREE.DoubleSide}),
-        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/earth/lf.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/ft.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/bk.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/up.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/dn.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/rt.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/lf.png'), side:THREE.DoubleSide}),
     ];
 
 
