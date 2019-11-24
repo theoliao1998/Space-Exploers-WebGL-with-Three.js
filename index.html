@@ -79,7 +79,10 @@
     var cloud_mesh = THREEx.Planets.createEarthCloud()
     scene.add(cloud_mesh)
 
-    
+    var moon_mesh	= THREEx.Planets.createMoon()
+	moon_mesh.position.set(0.5,0.5,0.5)
+	moon_mesh.scale.multiplyScalar(1/5)
+    scene.add(moon_mesh)
     
     // var loader = new THREE.GLTFLoader();
     // loader.load(
