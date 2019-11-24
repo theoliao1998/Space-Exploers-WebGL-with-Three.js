@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>test</title>
+<!-- You can add your style here rather than in an external style sheet. -->
+<style>
+	body{
+        margin:0;
+    }
+    canvas{
+        width:100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+    <script src = "js/three.js"></script>
+    <script src = "js/OrbitControls.js"></script>
+
+    <script>
+    (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+    var WIDTH = window.innerWidth;
+    var HEIGHT = window.innerHeight;
+    
+    var VIEW_ANGLE = 75;
+    var ASPECT = WIDTH / HEIGHT;
+    var NEAR = 0.1;
+    var FAR = 10000;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(
+        VIEW_ANGLE,
+        ASPECT,
+        NEAR,
+        FAR
+    );
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(WIDTH, HEIGHT);
+    document.body.appendChild(renderer.domElement)
+    
+    window.addEventListener('resize',function(){
+        WIDTH = window.innerWidth;
+        HEIGHT = window.innerHeight;
+        renderer.setSize(WIDTH, HEIGHT);
+        camera.aspect = WIDTH / HEIGHT;
+        camera.updateProjectionMatrix();
+    })
+    
+    // create shape
+    var controls = new THREE.OrbitControls(camera,renderer.domElement);
+    camera.position.z = 3; 
+    var geometry = new THREE.BoxGeometry( 100, 100, 100 );
+    
+
+    // var baseurl = 'https://raw.githubusercontent.com/theoliao1998/ThreeJS/master';
+    var cubeMaterials = 
+    [
+        new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load(
+                "skybox/purplehaze/purplehazeft.bmp"), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load(
+                "skybox/purplehaze/purplehazebk.bmp"), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load(
+                "skybox/purplehaze/purplehazeup.bmp"), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load(
+                "skybox/purplehaze/purplehazedn.bmp"), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load(
+                 "skybox/purplehaze/purplehazert.bmp"), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load(
+                 "skybox/purplehaze/purplehazelf.bmp"), side:THREE.DoubleSide}),
+    ];
+
+    // var cubeMaterials = [// 6 sides
+    //     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/mars/mars_front_first.jpg'), side:THREE.DoubleSide}),
+    //     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/mars/mars_front.jpg'), side:THREE.DoubleSide}),
+    //     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/mars/mars_up.jpg'), side:THREE.DoubleSide}),
+    //     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/mars/down>jpg'), side:THREE.DoubleSide}),
+    //     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/mars/mars_right.j[g'), side:THREE.DoubleSide}),
+    //     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(baseurl + '/skybox/mars/mars_left.jpg'), side:THREE.DoubleSide}), 
+    // ];
+
+
+    //var material = new THREE.MeshBasicMaterial( {color: 0xffffff, wireframe:true} );
+    //var material = new THREE.MeshFaceMaterial( cubeMaterials ); //MeshFaceMaterial removed, directly use the array
+    var cube = new THREE.Mesh( geometry, cubeMaterials );
+    scene.add( cube );
+    //otherwise both camera and cube is in the origin, can not see it!
+
+    
+   
+
+    var ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.3);
+    scene.add(ambientLight);
+
+    var update= function(){
+        // cube.rotation.x += 0.003;
+        // cube.rotation.y += 0.0015;
+        // var time = Date.now() * 0.0005;
+        // pointLight.position.x = Math.sin(time * 0.7)*30;
+        // pointLight.position.y = Math.cos(time * 0.5)*40;
+        // pointLight.position.z = Math.cos(time * 0.3)*30;
+        
+        // pointLight2.position.x = Math.cos(time * 0.3)*30;
+        // pointLight2.position.y = Math.sin(time * 0.5)*40;
+        // pointLight2.position.z = Math.sin(time * 0.7)*30;
+
+        // pointLight3.position.x = Math.sin(time * 0.7)*30;
+        // pointLight3.position.y = Math.cos(time * 0.3)*40;
+        // pointLight3.position.z = Math.sin(time * 0.5)*30;
+    };
+
+    // draw Scene
+    var render = function(){
+        renderer.render(scene,camera)
+    };
+
+    // run game loop (update, render repeat)
+    var GameLoop = function(){
+        requestAnimationFrame(GameLoop);
+        update();
+        render();
+
+    };
+    
+    GameLoop();
+
+    </script>
+</body>
+
+</html>
