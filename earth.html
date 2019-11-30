@@ -4,28 +4,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>test</title>
 <!-- You can add your style here rather than in an external style sheet. -->
-<style>
-	body{
-        margin:0;
-        background-color: black;
-    }
-    canvas{
-        width:100%;
-        height: 100%;
-    }
-</style>
+    <link rel="stylesheet" href="css/index.css" >
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
 
-    <img src="img/cockpit.png" alt = "cockpit" style="position: absolute;width: 100vw;height: 100vh">
+    <img id = 'cockpit' src="img/cockpit.png" alt = "cockpit" >
 
+    <div id = 'shipname'>SP<span style="color:orange">A</span>CE EXPL<span style="color:orange">O</span>RER</div>
+
+    <ul id = 'navi'>
+        <li id = 'earth'>EARTH</li>
+        <li id = 'mars'>MARS</li>
+        <li id = 'unknown'>UNKNOWN</li>
+    </ul>
+
+    <div id ='go'>LET'S GO!</div>
+
+
+    <div id = 'radar_plate'>
+<!--    <div id="loader"></div>-->
+    <div id="radar"></div>
+    </div>
+
+
+
+    <script src="js/sketch.js"></script>
+    <script src="js/radar.js"></script>
 
     <script src = "js/three.js"></script>
     <script src = "js/OrbitControls.js"></script>
 
     <script>
-    // (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+    //(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
     var WIDTH = window.innerWidth;
     var HEIGHT = window.innerHeight;
     
@@ -42,7 +55,7 @@
     );
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(WIDTH, HEIGHT);
-    document.body.appendChild(renderer.domElement)
+    document.body.appendChild(renderer.domElement);
     
     window.addEventListener('resize',function(){
         WIDTH = window.innerWidth;
@@ -50,7 +63,7 @@
         renderer.setSize(WIDTH, HEIGHT);
         camera.aspect = WIDTH / HEIGHT;
         camera.updateProjectionMatrix();
-    })
+    });
     
     // create shape
     var geometry = new THREE.BoxGeometry( 100, 100, 100 );
@@ -112,6 +125,7 @@
     GameLoop();
 
     </script>
+
 
 
 </body>

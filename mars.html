@@ -19,7 +19,7 @@
     <script src = "js/OrbitControls.js"></script>
 
     <script>
-    (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+    (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
     var WIDTH = window.innerWidth;
     var HEIGHT = window.innerHeight;
     
@@ -36,7 +36,7 @@
     );
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(WIDTH, HEIGHT);
-    document.body.appendChild(renderer.domElement)
+    document.body.appendChild(renderer.domElement);
     
     window.addEventListener('resize',function(){
         WIDTH = window.innerWidth;
@@ -44,7 +44,7 @@
         renderer.setSize(WIDTH, HEIGHT);
         camera.aspect = WIDTH / HEIGHT;
         camera.updateProjectionMatrix();
-    })
+    });
     
     // create shape
     var controls = new THREE.OrbitControls(camera,renderer.domElement);

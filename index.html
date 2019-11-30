@@ -4,15 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>test</title>
 <!-- You can add your style here rather than in an external style sheet. -->
-<style>
-	body{
-        margin:0;
-    }
-    canvas{
-        width:100%;
-        height: 100%;
-    }
-</style>
+    <link rel="stylesheet" href="css/index.css" >
 </head>
 <body>
     <script src = "js/three.js"></script>
@@ -23,7 +15,7 @@
     <script src = "js/LegacyJSONLoader.js"></script> -->
     <!-- <script src = "js/LegacyJSONLoader.js"></script> -->
     <script>
-    (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+    (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
     var WIDTH = window.innerWidth;
     var HEIGHT = window.innerHeight;
     
@@ -42,7 +34,7 @@
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(WIDTH, HEIGHT);
 
-    document.body.appendChild(renderer.domElement)
+    document.body.appendChild(renderer.domElement);
     camera.position.z = 1; //otherwise both camera and cube are in the origin, can not see it!
 
     var controls = new THREE.OrbitControls(camera,renderer.domElement);
@@ -73,16 +65,16 @@
     // scene.add( cube );
     
 
-    var earth_mesh = THREEx.Planets.createEarth()
-    scene.add(earth_mesh)
+    var earth_mesh = THREEx.Planets.createEarth();
+    scene.add(earth_mesh);
 
-    var cloud_mesh = THREEx.Planets.createEarthCloud()
-    scene.add(cloud_mesh)
+    var cloud_mesh = THREEx.Planets.createEarthCloud();
+    scene.add(cloud_mesh);
 
-    var moon_mesh	= THREEx.Planets.createMoon()
-	moon_mesh.position.set(0.5,0.5,0.5)
-	moon_mesh.scale.multiplyScalar(1/5)
-    scene.add(moon_mesh)
+    var moon_mesh	= THREEx.Planets.createMoon();
+	moon_mesh.position.set(0.5,0.5,0.5);
+	moon_mesh.scale.multiplyScalar(1/5);
+    scene.add(moon_mesh);
     
     // var loader = new THREE.GLTFLoader();
     // loader.load(
@@ -96,11 +88,11 @@
 
 
     
-    var ambientLight = new THREE.AmbientLight(0xffffff)
+    var ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
-    var light = new THREE.DirectionalLight( 0xffffff, 1 )
-	light.position.set(5,5,5)
-    scene.add( light )
+    var light = new THREE.DirectionalLight( 0xffffff, 1 );
+	light.position.set(5,5,5);
+    scene.add( light );
 
 
     // var pointLight = new THREE.PointLight(0xFF0040, 4, 50);
