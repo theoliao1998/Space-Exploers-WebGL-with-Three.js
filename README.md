@@ -1,6 +1,7 @@
 # ThreeJS  
 SI 539 Final Project  
 ## Libraries used:  
+* jQuery https://code.jquery.com/
 * three.js https://threejs.org/  
 * threex.planets https://github.com/jeromeetienne/threex.planets
 ## References
