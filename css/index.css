@@ -7,7 +7,12 @@ html{
     background-color: black;
 }
 
+<<<<<<< HEAD
 body{background-color: black;
+=======
+body{
+    background-color: black;
+>>>>>>> a0c8aee532c5414e069443650d78790cb8c21eb5
     width: 100vw;
     height: 100vh;
     margin:0;
@@ -207,19 +212,23 @@ canvas{
     top:103.4vh;
 }
 
+iframe{
+    display:none;
+    left:37%;
+    top: 20%;
+    border:0;
+    position: absolute;
+    outline: 0;
+    opacity: 1;
+    transition: all;
+}
 
-#loader {
-    /*position: relative;*/
-    right: 90px;
-    top: 10%;
-    width: .5%;
-    height: 1%;
-    border-radius: 100000%;
-    box-shadow: 0 0 10px 2px #ffc5c5;
-    background-color: #ff4c33;
+#mars{
+    z-index: 100;
 }
 
 
+<<<<<<< HEAD
 iframe{
     display:none;
     left:36%;
@@ -230,3 +239,16 @@ iframe{
     opacity: 0;
     transition: all;
 }
+=======
+/*#loader {*/
+/*    !*position: relative;*!*/
+/*    right: 90px;*/
+/*    top: 10%;*/
+/*    width: .5%;*/
+/*    height: 1%;*/
+/*    border-radius: 100000%;*/
+/*    box-shadow: 0 0 10px 2px #ffc5c5;*/
+/*    background-color: #ff4c33;*/
+/*}*/
+
+>>>>>>> a0c8aee532c5414e069443650d78790cb8c21eb5

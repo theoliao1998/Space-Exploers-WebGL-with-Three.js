@@ -6,7 +6,48 @@
 <!-- You can add your style here rather than in an external style sheet. -->
     <link rel="stylesheet" href="css/index.css" >
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    <style>
+            html{
+                background-color: black;
+            }
+            body{
+                margin:0;
+            }
+            canvas{
+                width:100%;
+                height: 100%;
+            }
+            
+            iframe{
+                display:none;
+                left:38%;
+                top: 25%;
+                border:0;
+                position: absolute;
+                outline: 0;
+                opacity: 0;
+                transition: all;
+                outline: none !important;;
+                appearance:none !important;;
+                -moz-appearance:none !important;;
+                -webkit-appearance:none !important;;
+            }
+        
+            iframe:focus{
+                outline: none;
+                appearance:none;
+                -moz-appearance:none;
+                -webkit-appearance:none;
+            }
+        
+        </style>
+>>>>>>> a0c8aee532c5414e069443650d78790cb8c21eb5
 
+>>>>>>> parent of cbce9ee... position
 </head>
 <body>
 
@@ -20,8 +61,13 @@
         <div id = 'go_on_board' class="button" tabindex="0"><p>Go On Board</p></div>
     </div>
 
+<<<<<<< HEAD
 
     <iframe id="earth" src="planet_earth.html" scrolling="no" height="400vh" width="400vw" frameBorder="0"></iframe>
+=======
+    
+    <iframe id="earth" src="planet_earth.html" scrolling="no" height="400vh" width="400vw" frameBorder="0" allowtransparency="true"></iframe>
+>>>>>>> a0c8aee532c5414e069443650d78790cb8c21eb5
     <iframe id="mars" src="planet_mars.html" scrolling="no" height="400vh" width="400vw" frameBorder="0" allowtransparency="true"></iframe>
     <iframe id="venus" src="planet_venus.html" scrolling="no" height="400vh" width="400vw" frameBorder="0" allowtransparency="true"></iframe>
     <!-- <iframe id="myFrame" src="planet.html" scrolling="no" height="400vh" width="400vw" frameBorder="0" allowtransparency="true"></iframe>
@@ -30,22 +76,32 @@
 
     <div id = 'content_in_cockpit'>
 
-    <div id = 'shipname'>SP<span style="color:orange">A</span>CE EXPL<span style="color:orange">O</span>RER</div>
+        <div id = 'shipname'>SP<span style="color:orange">A</span>CE EXPL<span style="color:orange">O</span>RER</div>
 
+<<<<<<< HEAD
     <ul id = 'navi'>
         <li id = 'navi_earth'>EARTH</li>
         <li id = 'navi_mars'>MARS</li>
         <li id = 'navi_venus'>VENUS</li>
     </ul>
+=======
+        <ul id = 'navi'>
+            <li id = 'navi_earth'>EARTH</li>
+            <li id = 'navi_mars'>MARS</li>
+            <li id = 'navi_venus'>VENUS</li>
+        </ul>
+>>>>>>> a0c8aee532c5414e069443650d78790cb8c21eb5
 
-    <div id ='go'>LET'S GO!</div>
+        <div id ='go'>LET'S GO!</div>
 
 
 
-    <div id = 'radar_plate'>
-<!--    <div id="loader"></div>-->
-    <div id="radar"></div>
-    </div>
+        <div id = 'radar_plate'>
+            <!--    <div id="loader"></div>-->
+            <div id="radar"></div>
+        </div>
+
+         
 
     </div>
 
@@ -54,11 +110,13 @@
     <script src="js/index.js"></script>
     <script src="js/sketch.js"></script>
     <script src="js/radar.js"></script>
+<!--    <script src="js/typing.js"></script>-->
 
     <script src = "js/three.js"></script>
     <script src = "js/OrbitControls.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/fade.js"></script>
+
 
     <script>
     //(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
