@@ -209,10 +209,10 @@
         next();
     }
 
-    var names = ["earth","mars"];
+    var names = ["earth","mars","venus"];
 
     function show(name){
-        for(const i in [0,1]){
+        for(const i in [0,1,2]){
             console.log(i);
             if(document.getElementById(names[i]).style.opacity==1){
                 fadeOut(names[i],2000);
