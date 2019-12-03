@@ -32,7 +32,7 @@ THREEx.Planets.createVenus	= function(){
 	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'venusmap.jpg'),
-		bumpMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'venusbump.jpg'),
+		//bumpMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'venusbump.jpg'),
 		bumpScale: 0.005,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
