@@ -16,3 +16,24 @@ $(document).ready(function() {
 	}
 	
 });
+
+$(".button").keypress(function(event){
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        this.click();  
+    }
+})
+
+$("li").keypress(function(event){
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        this.click();  
+    }
+})
+
+$("#go").keypress(function(event){
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        this.click();  
+    }
+})
