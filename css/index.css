@@ -172,7 +172,7 @@ canvas{
     color: white;
 }
 
-.clickable:hover{
+.clickable:hover, .clickable:focus{
     color: orange;
 }
 
@@ -193,7 +193,7 @@ canvas{
     cursor: pointer;
 }
 
-#navi li:hover{
+#navi li:hover, #navi li:focus{
     color:orange;
 }
 
