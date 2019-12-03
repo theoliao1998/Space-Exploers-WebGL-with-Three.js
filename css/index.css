@@ -3,7 +3,12 @@
     src: url(../fonts/Pasajero-95AL.ttf);
 }
 
-body{background-color: black;
+html{
+    background-color: black;
+}
+
+body{
+    background-color: black;
     width: 100vw;
     height: 100vh;
     margin:0;
@@ -204,14 +209,31 @@ canvas{
 }
 
 
-#loader {
-    /*position: relative;*/
-    right: 90px;
-    top: 10%;
-    width: .5%;
-    height: 1%;
-    border-radius: 100000%;
-    box-shadow: 0 0 10px 2px #ffc5c5;
-    background-color: #ff4c33;
+
+#mars{
+    z-index: 100;
 }
+
+
+iframe{
+    display:none;
+    left:36%;
+    top: 20%;
+    border:0;
+    position: absolute;
+    outline: 0;
+    opacity: 0;
+    transition: all;
+}
+
+/*#loader {*/
+/*    !*position: relative;*!*/
+/*    right: 90px;*/
+/*    top: 10%;*/
+/*    width: .5%;*/
+/*    height: 1%;*/
+/*    border-radius: 100000%;*/
+/*    box-shadow: 0 0 10px 2px #ffc5c5;*/
+/*    background-color: #ff4c33;*/
+/*}*/
 
