@@ -27,6 +27,9 @@ function fadeIn(name, duration) {
 var names = ["earth","mars","venus"];
 
 function show(name){
+    if(!document.getElementById(name).getAttribute("src")){
+        document.getElementById(name).setAttribute('src',"planet_"+name+".html")
+    }
     for(const i in [0,1,2]){
         if(document.getElementById(names[i]).style.opacity>'0'){
             fadeOut(names[i],2000);
