@@ -41,8 +41,14 @@ document.onreadystatechange = () => {
             can_go = true;
         };
 
+        function redirectPage() {
+            window.location = target;
+        }
+
         go.onclick = function () {
-            if(can_go) window.location.href = target;
+            if(can_go){
+                $("body").fadeOut(500, redirectPage);
+            } 
                 // content_in_cockpit.style.opacity ="100%";
                 // iframe.style.display="block";
         }
