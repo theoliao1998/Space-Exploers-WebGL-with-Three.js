@@ -8,4 +8,4 @@ SI 539 Final Project
 * Cockpit Pic: https://www.youtube.com/watch?v=s7iLzW3gXlg
 * Fonts: https://www.fontspace.com/fz-fonts/pasajero, https://fonts.googleapis.com/css?family=Orbitron&display=swap
 * Skyboxes: http://www.custommapmakers.org/skyboxes.php  
-* Planet Textures: https://www.solarsystemscope.com/embed
+* Planet Textures: https://www.solarsystemscope.com/textures/
