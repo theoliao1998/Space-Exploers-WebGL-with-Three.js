@@ -161,7 +161,7 @@ canvas{
 }
 
 #go{
-    width:40vw;
+    /*width:17vw;*/
     font-size: 3vw;
     margin: 2vh 0vw 0vh 77vw;
     position: absolute;
