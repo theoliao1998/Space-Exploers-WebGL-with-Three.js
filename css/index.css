@@ -19,21 +19,143 @@ canvas{
     position: absolute;
     width: 100vw;
     height: 100vh;
+    transform: scale(3.0);
+}
+
+#header{
+    position: absolute;
+    width: 100vw;
+    height: 15vh;
+    /*display: none;*/
+    transform: scale(3.0) translate(0,-20vh);
+}
+
+#content_in_cockpit{
+    display: none;
+    opacity: 0;
+}
+
+@keyframes zooms_out {
+0% {
+    transform: scale(3.0);
+    -webkit-transform: scale(3.0);
+}
+100% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+}
+}
+
+@keyframes zooms_in {
+     0% {
+         transform: scale(1.0);
+         -webkit-transform: scale(1.0);
+     }
+     100% {
+         transform: scale(3.0);
+         -webkit-transform: scale(3.0);
+     }
+ }
+
+@keyframes translate_down {
+    0% {
+        transform: translate(0,-20vh);
+        -webkit-transform: translate(0,-20vh);
+    }
+    100% {
+        transform: translate(0,0);
+        -webkit-transform: translate(0,0);
+    }
+}
+
+@keyframes fade_out {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade_in{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+
+.zoom_out{
+    animation: zooms_out ease 2s forwards;
+    -webkit-animation: zooms_out ease 2s forwards;
+}
+
+.translate_down{
+    animation: translate_down ease 2s forwards;
+    -webkit-animation: translate_down ease 2s forwards;
+}
+
+.fade_out{
+    animation: fade_out ease 2s forwards;
+    -webkit-animation: fade_out ease 2s forwards;
+}
+
+.fade_in{
+    animation: fade_in ease 2s forwards;
+    -webkit-animation: fade_in ease 2s forwards;
 }
 
 #shipname{
     width:40vw;
     font-size: 3vw;
-    margin: 2vh 4vw;
+    margin: 3vh 3vw;
     position: absolute;
     color: white;
     font-family: navi, sans-serif;
 }
 
+#welcome{
+    width:40vw;
+    font-size: 10vw;
+    /*white-space: nowrap;*/
+    margin: 15vh 25vw;
+    position: absolute;
+    color: white;
+    font-family: navi, sans-serif;
+}
+
+.button {
+    margin: 65vh 40vw;
+    background: #f2f2f2;
+    width: 20vw;
+    height:10vh;
+    position: absolute;
+    border-radius: 2vw;
+    color: #4d4d4d;
+}
+
+.button p{
+    padding: 0;
+    margin: 0;
+    line-height: 10vh;
+    font-size: 2vw;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.button:hover, .button:focus{
+    background: orange;
+    color: white;
+    cursor: pointer;
+}
+
 #go{
     width:40vw;
     font-size: 3vw;
-    margin: 1.5vh 0vw 0vh 76vw;
+    margin: 2vh 0vw 0vh 77vw;
     position: absolute;
     color: gray;
     font-family: 'Orbitron', sans-serif;
@@ -43,7 +165,7 @@ canvas{
     font-family: 'Orbitron', sans-serif;
     width:40vw;
     font-size: 2vw;
-    margin: 2.3vh 29vw;
+    margin: 3vh 29vw;
     color: white;
     position: absolute;
     list-style: none;
@@ -52,7 +174,7 @@ canvas{
 #navi li{
     width: auto;
     display: inline-block;
-    margin: 0 1.5vw;
+    margin: 0 2vw;
 }
 
 
@@ -74,11 +196,11 @@ canvas{
 ;
     border-radius: 100%;
     display: block;
-    /*width:10vw;*/
+    width:18vw;
     /*margin: 0 40vw;*/
-    left: 50vw;
+    left: 52.35vw;
     position: absolute;
-    top:100vh;
+    top:103.4vh;
 }
 
 

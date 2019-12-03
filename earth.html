@@ -10,15 +10,26 @@
 </head>
 <body>
 
+    <img id = 'cockpit'  src = "img/cockpit.png" alt = "cockpit" >
+    <img id = 'header' src = "img/Header.png" alt = "header">
 
-    <img id = 'cockpit' src="img/cockpit.png" alt = "cockpit" >
+
+<!--    welcome page-->
+    <div id='welcome_sec'>
+        <div id = 'welcome'>SP<span style="color:orange">A</span>CE EXPL<span style="color:orange">O</span>RER</div>
+        <div class="button" tabindex="0"><p>Go On Board</p></div>
+    </div>
+
+
+
+    <div id = 'content_in_cockpit'>
 
     <div id = 'shipname'>SP<span style="color:orange">A</span>CE EXPL<span style="color:orange">O</span>RER</div>
 
     <ul id = 'navi'>
         <li id = 'earth'>EARTH</li>
         <li id = 'mars'>MARS</li>
-        <li id = 'unknown'>UNKNOWN</li>
+        <li id = 'unknown'>VENUS</li>
     </ul>
 
     <div id ='go'>LET'S GO!</div>
@@ -29,8 +40,10 @@
     <div id="radar"></div>
     </div>
 
+    </div>
 
-
+<!--script here-->
+    <script src="js/index.js"></script>
     <script src="js/sketch.js"></script>
     <script src="js/radar.js"></script>
 
