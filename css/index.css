@@ -171,7 +171,7 @@ canvas{
     font-family: 'Orbitron', sans-serif;
     width:40vw;
     font-size: 2vw;
-    margin: 3vh 29vw;
+    margin: 3vh 30vw;
     color: white;
     position: absolute;
     list-style: none;
@@ -180,7 +180,7 @@ canvas{
 #navi li{
     width: auto;
     display: inline-block;
-    margin: 0 2vw;
+    margin: 0 1vw;
 }
 
 

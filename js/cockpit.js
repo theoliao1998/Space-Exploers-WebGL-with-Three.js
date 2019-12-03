@@ -36,7 +36,7 @@ document.onreadystatechange = () => {
 
         navi_venus.onclick=function () {
             show("venus");
-            target = 'venus.html';
+            target = 'unknown.html';
             go.style.color ='white';
             can_go = true;
         };
