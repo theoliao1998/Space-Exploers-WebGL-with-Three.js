@@ -3,6 +3,10 @@
     src: url(../fonts/Pasajero-95AL.ttf);
 }
 
+html{
+    background-color: black;
+}
+
 body{background-color: black;
     width: 100vw;
     height: 100vh;
@@ -215,3 +219,14 @@ canvas{
     background-color: #ff4c33;
 }
 
+
+iframe{
+    display:none;
+    left:36%;
+    top: 20%;
+    border:0;
+    position: absolute;
+    outline: 0;
+    opacity: 0;
+    transition: all;
+}
