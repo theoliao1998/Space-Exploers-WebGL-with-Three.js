@@ -1,7 +1,7 @@
 
 function fadeOut(name, duration) {
     let el = document.getElementById(name);
-    var step = 10 / duration, opacity = 1;
+    var step = 10 / duration, opacity = 0.8;
     function next() {
         if (opacity <= 0) { return; }
         el.style.opacity = ( opacity -= step );
@@ -16,7 +16,7 @@ function fadeIn(name, duration) {
     let el = document.getElementById(name);
     var step = 10 / duration, opacity = 0;
     function next() {
-        if (opacity >= 1) { return; }
+        if (opacity >= 0.8) { return; }
         el.style.opacity = ( opacity += step );
         setTimeout(next, 10);
     }
