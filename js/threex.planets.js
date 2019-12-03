@@ -31,8 +31,8 @@ THREEx.Planets.createMercury	= function(){
 THREEx.Planets.createVenus	= function(){
 	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
-		map	: THREE.TextureLoader().load(THREEx.Planets.baseURL+'venusmap.jpg'),
-		bumpMap	: THREE.TextureLoader().load(THREEx.Planets.baseURL+'venusbump.jpg'),
+		map	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'venusmap.jpg'),
+		//bumpMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'venusbump.jpg'),
 		bumpScale: 0.005,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
@@ -128,8 +128,8 @@ THREEx.Planets.createMoon	= function(){
 THREEx.Planets.createMars	= function(){
 	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
-		map	: THREE.TextureLoader().load(THREEx.Planets.baseURL+'marsmap1k.jpg'),
-		bumpMap	: THREE.TextureLoader().load(THREEx.Planets.baseURL+'marsbump1k.jpg'),
+		map	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'8k_mars.jpg'),
+		//bumpMap	: new THREE.TextureLoader().load(THREEx.Planets.baseURL+'marsbump1k.jpg'),
 		bumpScale: 0.05,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
@@ -322,7 +322,7 @@ THREEx.Planets.createPluto	= function(){
 }
 
 THREEx.Planets.createStarfield	= function(){
-	var texture	= THREE.TextureLoader().load(THREEx.Planets.baseURL+'galaxy_starfield.png')
+	var texture	= new THREE.TextureLoader().load(THREEx.Planets.baseURL+'galaxy_starfield.png')
 	var material	= new THREE.MeshBasicMaterial({
 		map	: texture,
 		side	: THREE.BackSide
