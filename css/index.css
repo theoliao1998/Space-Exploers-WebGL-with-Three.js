@@ -204,14 +204,14 @@ canvas{
 }
 
 
-#loader {
-    /*position: relative;*/
-    right: 90px;
-    top: 10%;
-    width: .5%;
-    height: 1%;
-    border-radius: 100000%;
-    box-shadow: 0 0 10px 2px #ffc5c5;
-    background-color: #ff4c33;
-}
+/*#loader {*/
+/*    !*position: relative;*!*/
+/*    right: 90px;*/
+/*    top: 10%;*/
+/*    width: .5%;*/
+/*    height: 1%;*/
+/*    border-radius: 100000%;*/
+/*    box-shadow: 0 0 10px 2px #ffc5c5;*/
+/*    background-color: #ff4c33;*/
+/*}*/
 

@@ -15,10 +15,11 @@ document.onreadystatechange = () => {
                 welcome_sec.style.display ="none";
                 content_in_cockpit.style.display ="block";
                 content_in_cockpit.classList.add("fade_in");
-            });
-        };
+                content_in_cockpit.style.opacity ="100%";
+        })
     }
-};
+}
+}
 
 //
 // var can_go = function (a,b,c) {
