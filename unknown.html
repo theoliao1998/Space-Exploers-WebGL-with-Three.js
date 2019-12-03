@@ -4,36 +4,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/fade.js"></script>
-<title>test</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/index.css" >
+
+    <title>test</title>
+
+
+    <style>
+        #navi{
+            margin: 3vh 35.5vw;
+        }
+
+        #go{
+            margin: 2vh 0vw 0vh 78.5vw;
+        }
+
+        #content_in_header{
+            display: none;
+        }
+    </style>
 <!-- You can add your style here rather than in an external style sheet. -->
-<style>
-    html{
-        background-color: black;
-    }
-	body{
-        margin:0;
-    }
-    canvas{
-        width:100%;
-        height: 100%;
-    }
-</style>
 </head>
 <body>
 
-    <div id = 'header_wrapper'>
-    <img id = 'header' src = "img/Header.png" alt = "header">
+    <img id = 'header' src = "img/Header.png" class ="zoom_out" alt = "header">
+    <div id = 'content_in_header'>
+
     <div id = 'shipname'>SP<span style="color:orange">A</span>CE EXPL<span style="color:orange">O</span>RER</div>
 
+        <p id ="navi">You are on the UNKNOWN.</p>
 
-    <ul id = 'navi'>
-        <li id = 'navi_earth'>EARTH</li>
-        <li id = 'navi_mars'>MARS</li>
-        <li id = 'navi_venus'>UNKNOWN</li>
-    </ul>
-
-
-    <div id ='go'>LET'S GO!</div>
+    <div id ='go' class="clickable">Go Back!</div>
     </div>
 
 
@@ -41,7 +43,19 @@
     <script src = "js/OrbitControls.js"></script>
 
     <script>
-    (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
+        header.addEventListener("animationend",function () {
+            content_in_header.style.display ="block";
+            content_in_header.classList.add("fade_in");
+        });
+
+        go.onclick = function () {
+            window.location.href = "cockpit.html";
+        }
+    </script>
+
+
+    <script>
+    // (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
     var WIDTH = window.innerWidth;
     var HEIGHT = window.innerHeight;
     

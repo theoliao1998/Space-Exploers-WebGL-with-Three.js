@@ -12,6 +12,7 @@ body{
     width: 100vw;
     height: 100vh;
     margin:0;
+    color: gray;
     overflow: hidden;
 }
 
@@ -163,8 +164,16 @@ canvas{
     font-size: 3vw;
     margin: 2vh 0vw 0vh 77vw;
     position: absolute;
-    color: gray;
     font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+}
+
+.clickable{
+    color: white;
+}
+
+.clickable:hover{
+    color: orange;
 }
 
 #navi{
@@ -181,7 +190,13 @@ canvas{
     width: auto;
     display: inline-block;
     margin: 0 1vw;
+    cursor: pointer;
 }
+
+#navi li:hover{
+    color:orange;
+}
+
 
 
 /*radar*/
