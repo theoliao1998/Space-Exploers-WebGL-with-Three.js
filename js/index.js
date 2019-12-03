@@ -19,3 +19,8 @@ document.onreadystatechange = () => {
         };
     }
 };
+
+//
+// var can_go = function (a,b,c) {
+//     if()
+// }

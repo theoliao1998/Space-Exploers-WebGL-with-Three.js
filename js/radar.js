@@ -1,4 +1,4 @@
-var radar = document.getElementsByName()
+var radar = document.querySelector("#radar");
     diameter = 300,
     radius = diameter / 2,
     padding = 14,

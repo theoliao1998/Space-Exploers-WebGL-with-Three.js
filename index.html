@@ -5,23 +5,59 @@
 <title>test</title>
 <!-- You can add your style here rather than in an external style sheet. -->
     <link rel="stylesheet" href="css/index.css" >
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+
 </head>
 <body>
+
+    <img id = 'cockpit'  src = "img/cockpit.png" alt = "cockpit" >
+    <img id = 'header' src = "img/Header.png" alt = "header">
+
+
+<!--    welcome page-->
+    <div id='welcome_sec'>
+        <div id = 'welcome'>SP<span style="color:orange">A</span>CE EXPL<span style="color:orange">O</span>RER</div>
+        <div class="button" tabindex="0"><p>Go On Board</p></div>
+    </div>
+
+
+
+    <div id = 'content_in_cockpit'>
+
+    <div id = 'shipname'>SP<span style="color:orange">A</span>CE EXPL<span style="color:orange">O</span>RER</div>
+
+    <ul id = 'navi'>
+        <li id = 'earth'>EARTH</li>
+        <li id = 'mars'>MARS</li>
+        <li id = 'unknown'>VENUS</li>
+    </ul>
+
+    <div id ='go'>LET'S GO!</div>
+
+
+    <div id = 'radar_plate'>
+<!--    <div id="loader"></div>-->
+    <div id="radar"></div>
+    </div>
+
+    </div>
+
+<!--script here-->
+    <script src="js/index.js"></script>
+    <script src="js/sketch.js"></script>
+    <script src="js/radar.js"></script>
+
     <script src = "js/three.js"></script>
     <script src = "js/OrbitControls.js"></script>
-    <script src = "js/threex.planets.js"></script>
-    <!-- <script src = "js/GLTFLoader.js"></script>
-    <script src = "js/PLYLoader.js"></script>
-    <script src = "js/LegacyJSONLoader.js"></script> -->
-    <!-- <script src = "js/LegacyJSONLoader.js"></script> -->
+
     <script>
-    (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
+    //(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})();
     var WIDTH = window.innerWidth;
     var HEIGHT = window.innerHeight;
     
     var VIEW_ANGLE = 75;
     var ASPECT = WIDTH / HEIGHT;
-    var NEAR = 0.01;
+    var NEAR = 0.1;
     var FAR = 10000;
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(
@@ -30,14 +66,9 @@
         NEAR,
         FAR
     );
-
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(WIDTH, HEIGHT);
-
     document.body.appendChild(renderer.domElement);
-    camera.position.z = 1; //otherwise both camera and cube are in the origin, can not see it!
-
-    var controls = new THREE.OrbitControls(camera,renderer.domElement);
     
     window.addEventListener('resize',function(){
         WIDTH = window.innerWidth;
@@ -45,71 +76,38 @@
         renderer.setSize(WIDTH, HEIGHT);
         camera.aspect = WIDTH / HEIGHT;
         camera.updateProjectionMatrix();
-    })
+    });
     
     // create shape
-    // var geometry = new THREE.BoxGeometry( 2, 2, 2 );
-    // var cubeMaterials = [// 6 sides
-    //     new THREE.MeshLambertMaterial({color:0xFFFFFF, side:THREE.FrontSide}),
-    //     new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide}),
-    //     new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide}),
-    //     new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide}),
-    //     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide}),
-    //     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/img/1_1024x1024.jpg'), side:THREE.DoubleSide})
-    // ];
+    var geometry = new THREE.BoxGeometry( 100, 100, 100 );
+
+    // var baseurl = 'https://raw.githubusercontent.com/theoliao1998/ThreeJS/master';
+
+    var cubeMaterials = [// 6 sides
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/ft.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/bk.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/up.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/dn.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/rt.png'), side:THREE.DoubleSide}),
+        new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('skybox/earth/lf.png'), side:THREE.DoubleSide}),
+    ];
 
 
     //var material = new THREE.MeshBasicMaterial( {color: 0xffffff, wireframe:true} );
     //var material = new THREE.MeshFaceMaterial( cubeMaterials ); //MeshFaceMaterial removed, directly use the array
-    // var cube = new THREE.Mesh( geometry, cubeMaterials );
-    // scene.add( cube );
-    
+    var cube = new THREE.Mesh( geometry, cubeMaterials );
+    scene.add( cube );
+    camera.position.z = 3; //otherwise both camera and cube is in the origin, can not see it!
 
-    var earth_mesh = THREEx.Planets.createEarth();
-    scene.add(earth_mesh);
+    var controls = new THREE.OrbitControls(camera,renderer.domElement);
+   
 
-    var cloud_mesh = THREEx.Planets.createEarthCloud();
-    scene.add(cloud_mesh);
-
-    var moon_mesh	= THREEx.Planets.createMoon();
-	moon_mesh.position.set(0.5,0.5,0.5);
-	moon_mesh.scale.multiplyScalar(1/5);
-    scene.add(moon_mesh);
-    
-    // var loader = new THREE.GLTFLoader();
-    // loader.load(
-    //     "https://raw.githubusercontent.com/theoliao1998/ThreeJS/master/models/earth2/scene.gltf",
-    //     function(gltf){
-    //         scene.add(gltf.scene);
-    //     }, undefined, function ( error ) {
-    //         console.error( error );
-    //     }
-    // );
-
-
-    
-    var ambientLight = new THREE.AmbientLight(0xffffff);
+    var ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.3);
     scene.add(ambientLight);
-    var light = new THREE.DirectionalLight( 0xffffff, 1 );
-	light.position.set(5,5,5);
-    scene.add( light );
 
-
-    // var pointLight = new THREE.PointLight(0xFF0040, 4, 50);
-    // scene.add(pointLight);
-    // var pointLight2 = new THREE.PointLight(0x0040FF, 4, 50);
-    // scene.add(pointLight2);
-    // var pointLight3 = new THREE.PointLight(0xFFFF40, 4, 50);
-    // scene.add(pointLight3);
-
-
-    // game logic
     var update= function(){
-        // earth_mesh.rotation.y += 1/32 * delta;
-        //cloud_mesh.rotation.y += 1/8 * delta;
-        //earth_mesh.rotation.x += 0.01;
-        earth_mesh.rotation.y += 0.001;
-        cloud_mesh.rotation.y += 0.004;
+        cube.rotation.x += 0.003;
+        cube.rotation.y += 0.0015;
         // var time = Date.now() * 0.0005;
         // pointLight.position.x = Math.sin(time * 0.7)*30;
         // pointLight.position.y = Math.cos(time * 0.5)*40;
@@ -130,19 +128,19 @@
     };
 
     // run game loop (update, render repeat)
-
     var GameLoop = function(){
         requestAnimationFrame(GameLoop);
         update();
         render();
+
     };
     
     GameLoop();
 
-    
-    
-
     </script>
+
+
+
 </body>
 
 </html>
